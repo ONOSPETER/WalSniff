@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+
+# Runtime data: saved keys, admin hash, sessions and the encryption secret. Never commit any of it.
+data/*
+!data/.gitkeep
+
+# Build leftovers
+*.zip
+.agents

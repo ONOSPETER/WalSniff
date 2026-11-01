@@ -1,0 +1,29 @@
+{
+  "name": "walsniff",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "WalSniff - rug-pattern learner and token risk scanner powered by Walrus Memory and Tatum",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "dev:web": "vite",
+    "build": "vite build",
+    "test": "node --test",
+    "probe:sui": "node scripts/probe-sui.js"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.14.7",
+    "@mysten-incubation/memwal": "^0.1.11",
+    "@mysten/seal": "^1.5.2",
+    "@mysten/sui": "^2.38.0",
+    "@mysten/walrus": "^1.2.37",
+    "@protobuf-ts/grpc-transport": "^2.11.1"
+  }
+}
