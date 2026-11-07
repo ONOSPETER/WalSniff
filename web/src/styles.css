@@ -97,7 +97,14 @@ h1, h2, h3 { font-family: var(--font-d); letter-spacing: -.025em; line-height: 1
 .hint { min-height: 1.4em; font-size: .9rem; color: var(--bad); }
 .examples { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 720px; }
 .examples button { cursor: pointer; }
-.hero .mascot { position: absolute; z-index: 5; right: clamp(8px, 3vw, 56px); bottom: -2px; width: clamp(190px, 22vw, 340px); transform-origin: 50% 100%; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .35)); transition: transform .25s var(--ease); will-change: transform; }
+.hero .mascot {
+  position: absolute;
+  z-index: 5;
+  right: clamp(-20px, -2vw, 20px);   /* was clamp(8px, 3vw, 56px) — moves it further right */
+  bottom: -30px;                      /* was -2px — drops it a bit lower */
+  width: clamp(170px, 20vw, 300px);   /* slightly smaller so it competes less with the button */
+  transform-origin: 50% 100%; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .35)); transition: transform .25s var(--ease); will-change: transform; pointer-events: none;               /* optional but recommended — clicks pass through the image */
+}
 .hero .mascot img { width: 100%; animation: bob 5s ease-in-out infinite; }
 .scent { position: absolute; z-index: 4; width: 7px; height: 7px; border-radius: 50%; background: var(--pri); box-shadow: 0 0 14px var(--pri); opacity: 0; animation: scent 5.5s linear infinite; pointer-events: none; }
 .tide { position: absolute; z-index: 6; left: 24px; bottom: 22px; display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-radius: 18px; font-size: .86rem; }
@@ -243,10 +250,15 @@ footer.foot { padding: 30px 0 50px; color: var(--ink-3); font-size: .88rem; text
 /* ---------- responsive ---------- */
 @media (max-width: 1100px) { .kpis { grid-template-columns: repeat(3, 1fr); } .kpi { border-bottom: 1px solid var(--line); } .dash, .dash3 { grid-template-columns: 1fr; } }
 @media (max-width: 900px) {
-  .cols, .grid2, .verdict, .steps { grid-template-columns: 1fr; } .node, .hero-links { display: none; }
-  .hero .mascot { width: clamp(150px, 36vw, 240px); } .hero-core { padding-top: 17vh; padding-bottom: clamp(190px, 40vw, 280px); }
-  .nav { width: calc(100% - 28px); justify-content: space-between; overflow-x: auto; } .nav .hide-s { display: none; } .top-right { display: none; }
-  .tide { left: 12px; bottom: 12px; } .field { grid-template-columns: 1fr; }
+  .cols, .grid2, .verdict, .steps { grid-template-columns: 1fr; }
+  .node, .hero-links { display: none; }
+  .hero .mascot { width: clamp(130px, 32vw, 210px); }  /* a bit smaller than before */
+  .hero-core { padding-top: 17vh; padding-bottom: clamp(210px, 42vw, 300px); } /* more bottom padding */
+  .nav { width: calc(100% - 28px); justify-content: space-between; overflow-x: auto; }
+  .nav .hide-s { display: none; }
+  .top-right { display: none; }
+  .tide { left: 12px; bottom: 12px; }
+  .field { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
   .adm { grid-template-columns: 1fr; padding: 10px; padding-bottom: 84px; }
